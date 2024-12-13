@@ -59,7 +59,9 @@ export default App;
 */
 
 import { useState } from "react";
-import './akk.css'
+import './akk.css';
+
+
 
 import { useForm } from "react-hook-form";
 
