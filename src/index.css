@@ -1,0 +1,25 @@
+body{
+  background-color: aqua;
+  color: black;
+}
+.container{
+  display: flex;
+  justify-content: center;
+  border: 3px solid brown;
+  border-radius: 4px;
+  width: 80vh;
+  height: 80vh;
+}
+lebel{
+  font-size: larger;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+}
+.btn{
+  background-color: greenyellow;
+}
+.red{
+  color: red;
+  font-size: 14px;
+}
