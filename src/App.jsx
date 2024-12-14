@@ -55,14 +55,34 @@ function App() {
   )
 }
 export default App;
+import postcss from 'rollup-plugin-postcss';
+
+export default {
+  input: 'src/main.js',
+  output: {
+    file: 'dist/bundle.js',
+    format: 'es',
+  },
+  plugins: [
+    postcss({
+      extract: true, // Extract CSS to a separate file
+    }),
+  ],
+};
+
 
 */
 
 import { useState } from "react";
-import './akk.css';
+import "./akk.css" ;// Adjust path based on actual file location
+
 import { useForm } from "react-hook-form";
 
+//import postcss from 'rollup-plugin-postcss';
+
+
 function App() {
+  
   const {
     register,
     handleSubmit,
@@ -89,27 +109,30 @@ function App() {
   
   return (
     <>
+    
     <h1>Job Form Login</h1>
       {isSubmitting && <div className="h1">Lodding...</div>}
       <div className= "con">
         <form action="" onSubmit={handleSubmit(onSubmit)}>
-          <h3> name *</h3>
-          <input className="input"{...register("name", { required: { value: true, message: "this filed is reqired" }, minLength: { value: 4, message: "min leangth reqired is 4" }, maxLength: { value: 14, message: "max leangth is reqired 14" } })} type="text" placeholder="enrter your name" /><br /><br />
+          <h3 > name *</h3>
+          <input  className="input"{...register("name", { required: { value: true, message: "this filed is reqired" }, minLength: { value: 4, message: "min leangth reqired is 4" }, maxLength: { value: 14, message: "max leangth is reqired 14" } })} type="text" placeholder="enrter your name" /><br /><br />
           {errors.username && <div className="red">{errors.username.message}</div>}
-          <h3>Possword *</h3>
+          <h3 >Possword *</h3>
           <input className="input"{...register("password", { required: { value: true, message: "job is reqired" }, minLength: { value: 5, message: "min leangth  of password" }, maxLength: { value: 12, message: "max length 12 only" } })} type="password" placeholder="password" /><br /><br />
           {errors.password && <div className="red">{errors.password.message}</div>}
-          <h3>  Job *  </h3>
+          <h3 >  Job *  </h3>
           <input className="input" {...register("job", { required: { value: true, message: "this filed is reqired" }, minLength: { value: 2, message: "min leangth reqired is 4" }, maxLength: { value: 12, message: "max leangth is reqired 12" } })} type="text" placeholder="enrter yourjob name" /><br /><br />
           {errors.job && <div className="red">{errors.job.message}</div>}
-          <h3>  salary *      </h3>
+          <h3 >  salary *      </h3>
           <input className="input" {...register("salary", { required: { value: true, message: "salary is reqired" }, minLength: { value: 4, message: "min leangth 4" }, maxLength: { value: 6, message: "max length 6 only" } })} type="number" placeholder=" get your salary" /><br /><br />
-          {errors.position && <div className="red">{errors.position.message}</div>}
+          {errors.position && <div className="red" >{errors.position.message}</div>}
           <label>Submit Your FIles *</label>
-          <input disabled={isSubmitting} className="btn" type="submit" value="Submit" />
+          <input disabled={isSubmitting} className="btn "  type="submit" value="Submit" />
         </form>
       </div>
+      
     </>
   )
 }
 export default App;
+
